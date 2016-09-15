@@ -1,56 +1,51 @@
 package ru.sbt.test.refactoring;
 
+import ru.sbt.test.refactoring.field.Field;
+import ru.sbt.test.refactoring.field.Orientation;
+import ru.sbt.test.refactoring.field.Position;
+
 public class Tractor {
 
-	int[] position = new int[] { 0, 0 };
-	int[] field = new int[] { 5, 5 };
-	Orientation orientation = Orientation.NORTH;
+	private final Position position;
+	private final Field field;
+
+	public Tractor(Position position, Field field) {
+		this.position = position;
+		this.field = field;
+	}
+
+	public Tractor() {
+		position = new Position(0,0, Orientation.NORTH);
+		field = new Field(5,5);
+	}
 
 	public void move(String command) {
-        if (command == "F") {
+        if (command.equals("F")) {
 			moveForwards();
-		} else if (command == "T") {
+		} else if (command.equals("T")) {
 			turnClockwise();
 		}
 	}
 
     public void moveForwards() {
-		if (orientation == Orientation.NORTH) {
-			position = new int[] { position[0], position[1] + 1 };
-		} else if (orientation == Orientation.EAST) {
-			position = new int[] { position[0] + 1, position[1] };
-		} else if (orientation == Orientation.SOUTH) {
-			position = new int[] { position[0], position[1] - 1 };
-		} else if (orientation == Orientation.WEST) {
-			position = new int[] { position[0] - 1, position[1] };
-		}
-		if (position[0] > field[0] || position[1] > field[1]) {
-			throw new TractorInDitchException();
-		}
+    	position.changePosition(field);
 	}
 
     public void turnClockwise() {
-		if (orientation == Orientation.NORTH) {
-			orientation = Orientation.EAST;
-		} else if (orientation == Orientation.EAST) {
-			orientation = Orientation.SOUTH;
-		} else if (orientation == Orientation.SOUTH) {
-			orientation = Orientation.WEST;
-		} else if (orientation == Orientation.WEST) {
-			orientation = Orientation.NORTH;
-		}
+		position.turnOrient();
 	}
 
 	public int getPositionX() {
-		return position[0];
+		return position.getX();
 	}
 
 	public int getPositionY() {
-		return position[1];
+		return position.getY();
 	}
 
 	public Orientation getOrientation() {
-		return orientation;
+		return position.getOrientation();
 	}
+
 
 }

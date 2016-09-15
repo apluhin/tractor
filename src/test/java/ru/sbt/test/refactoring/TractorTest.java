@@ -1,6 +1,8 @@
 package ru.sbt.test.refactoring;
 
 import junit.framework.TestCase;
+import ru.sbt.test.refactoring.exception.TractorInDitchException;
+import ru.sbt.test.refactoring.field.Orientation;
 
 /**
  * @author Ben
