@@ -1,8 +1,7 @@
 package ru.sbt.test.refactoring;
 
-import ru.sbt.test.refactoring.field.Field;
-import ru.sbt.test.refactoring.field.Orientation;
-import ru.sbt.test.refactoring.field.Position;
+
+import ru.sbt.test.refactoring.action.*;
 
 public class Tractor {
 
@@ -15,16 +14,18 @@ public class Tractor {
 	}
 
 	public Tractor() {
-		position = new Position(0,0, Orientation.NORTH);
+		position = new Position(0, 0, OrientationImpl.NORTH);
 		field = new Field(5,5);
 	}
 
 	public void move(String command) {
-        if (command.equals("F")) {
-			moveForwards();
-		} else if (command.equals("T")) {
-			turnClockwise();
-		}
+		new Command(command).execute(position, field);
+
+//		if (command.equals("F")) {
+//			moveForwards();
+//		} else if (command.equals("T")) {
+//			turnClockwise();
+//		}
 	}
 
     public void moveForwards() {

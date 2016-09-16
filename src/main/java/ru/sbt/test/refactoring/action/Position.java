@@ -1,4 +1,4 @@
-package ru.sbt.test.refactoring.field;
+package ru.sbt.test.refactoring.action;
 
 import ru.sbt.test.refactoring.exception.TractorInDitchException;
 import ru.sbt.test.refactoring.utils.Util;
@@ -9,7 +9,7 @@ public class Position {
     private Orientation orientation;
 
 
-    public Position(int x, int y, Orientation orientation) {
+    public Position(int x, int y, OrientationImpl orientation) {
         this.x = x;
         this.y = y;
         this.orientation = orientation;

@@ -1,4 +1,4 @@
-package ru.sbt.test.refactoring.field;
+package ru.sbt.test.refactoring.action;
 
 public class Field {
     private final int maxX;

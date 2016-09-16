@@ -1,8 +1,8 @@
 package ru.sbt.test.refactoring;
 
 import junit.framework.TestCase;
+import ru.sbt.test.refactoring.action.OrientationImpl;
 import ru.sbt.test.refactoring.exception.TractorInDitchException;
-import ru.sbt.test.refactoring.field.Orientation;
 
 /**
  * @author Ben
@@ -20,14 +20,14 @@ public class TractorTest extends TestCase {
 	public void testShouldTurn(){
 		Tractor tractor = new Tractor();
 		tractor.move("T");
-		assertEquals(Orientation.EAST, tractor.getOrientation());
-		tractor.move("T");
-		assertEquals(Orientation.SOUTH, tractor.getOrientation());
-		tractor.move("T");
-		assertEquals(Orientation.WEST, tractor.getOrientation());
-		tractor.move("T");
-		assertEquals(Orientation.NORTH, tractor.getOrientation());
-	}
+        assertEquals(OrientationImpl.EAST, tractor.getOrientation());
+        tractor.move("T");
+        assertEquals(OrientationImpl.SOUTH, tractor.getOrientation());
+        tractor.move("T");
+        assertEquals(OrientationImpl.WEST, tractor.getOrientation());
+        tractor.move("T");
+        assertEquals(OrientationImpl.NORTH, tractor.getOrientation());
+    }
 
 	public void testShouldTurnAndMoveInTheRightDirection(){
 		Tractor tractor = new Tractor();
