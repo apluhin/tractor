@@ -24,8 +24,9 @@ public class Command {
     }
 
     private void initialize() {
-        commands.put("T", TURN);
-        commands.put("F", MOVE);
+        for (Action a : Action.values()) {
+            commands.put(a.getSymbol(), a);
+        }
     }
 
     public void execute(Position position, Field field) {

@@ -14,18 +14,12 @@ public class Tractor {
 	}
 
 	public Tractor() {
-		position = new Position(0, 0, OrientationImpl.NORTH);
+		position = new Position(0, 0, OrientationEnum.NORTH);
 		field = new Field(5,5);
 	}
 
 	public void move(String command) {
 		new Command(command).execute(position, field);
-
-//		if (command.equals("F")) {
-//			moveForwards();
-//		} else if (command.equals("T")) {
-//			turnClockwise();
-//		}
 	}
 
     public void moveForwards() {

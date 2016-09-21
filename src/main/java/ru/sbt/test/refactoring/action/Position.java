@@ -9,7 +9,7 @@ public class Position {
     private Orientation orientation;
 
 
-    public Position(int x, int y, OrientationImpl orientation) {
+    public Position(int x, int y, OrientationEnum orientation) {
         this.x = x;
         this.y = y;
         this.orientation = orientation;

@@ -1,6 +1,6 @@
 package ru.sbt.test.refactoring.action;
 
-public enum OrientationImpl implements Orientation {
+public enum OrientationEnum implements Orientation {
 
     NORTH {
         public void moveForward(Position position) {
@@ -8,7 +8,7 @@ public enum OrientationImpl implements Orientation {
         }
 
         @Override
-        public OrientationImpl turn() {
+        public OrientationEnum turn() {
             return EAST;
         }
 
@@ -18,7 +18,7 @@ public enum OrientationImpl implements Orientation {
         }
 
         @Override
-        public OrientationImpl turn() {
+        public OrientationEnum turn() {
             return NORTH;
         }
     }, SOUTH {
@@ -27,7 +27,7 @@ public enum OrientationImpl implements Orientation {
         }
 
         @Override
-        public OrientationImpl turn() {
+        public OrientationEnum turn() {
             return WEST;
         }
     }, EAST {
@@ -36,10 +36,12 @@ public enum OrientationImpl implements Orientation {
         }
 
         @Override
-        public OrientationImpl turn() {
+        public OrientationEnum turn() {
             return SOUTH;
         }
     };
+
+
 
 
 }
